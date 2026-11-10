@@ -3,5 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="main.vcxproj" Id="ec06365b-53f9-4235-8ffa-5adb9a2dd18e" />
+  <Project Path="main.vcxproj" Id="ec06365b-53f9-4235-8ffa-5adb9a2dd18e">
+    <BuildType Solution="Debug|x64" Project="Release" />
+  </Project>
 </Solution>
