@@ -40,5 +40,7 @@ void handleRecevier(sf::TcpSocket& socket) {
 		packet.clear();
 	}
 
+	outFile.close();
+
 	std::cout << "Zakonczono\n";
 }
