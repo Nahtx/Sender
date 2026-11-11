@@ -142,6 +142,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\global\global.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\recevier\recevier.cpp" />
     <ClCompile Include="src\sender\sender.cpp" />

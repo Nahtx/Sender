@@ -13,28 +13,46 @@ void getComputerInfo() {
 }
 
 int main() {
-	std::cout << "Uwaga Odbiorca jako pierwszy musi zostac zadeklarowyny\n";
 
 	sf::TcpSocket socket;
+	std::string input;
 
-	std::cout << "\nNapisz \"1\" dla Odbiorcy lub \"2\" dla Nadawcy: ";
-	int input;
+	std::cout << "Uwaga Odbiorca jako pierwszy musi zostac zadeklarowyny\n";
+
+	std::cout << "\nNapisz czy jestes Nadawca czy Odbiorca(n/o):";
 	std::cin >> input;
-	
-	switch (input) {
-		case 1: {
-			getComputerInfo();
-			handleRecevier(socket);
-			break;
-		}
-		case 2: {
-			getComputerInfo();
+
+	std::cout << "\nPrzygotowywanie...\n";
+
+	if(input == "o") {
+		getComputerInfo();
+		std::filesystem::create_directory("output");
+
+		std::cout << "\n=====Odbiorca=====\n";
+
+		handleRecevier(socket);
+	} 
+	else if (input == "n") {
+		getComputerInfo();
+		std::filesystem::create_directory("input");
+
+		std::cout << "\n=====Nadawca=====\n";
+		std::cout << "Umiesc pliki input.zip w folderze \"input\" i napisz \"y\" jezeli gotowe: ";
+		std::cin >> input;
+		if (input == "y") {
 			handleSender(socket);
-			break;
+		}
+		else {
+			std::cout << "Podano zly znak\n";
+			return -1;
 		}
 	}
+	else {
+		std::cout << "Podano zly znak\n";
+		return -1;
+	}
 
-	std::cout << "\n\nNacisnij Enter, aby zakonczyc program...";
+	std::cout << "\n\nNacisnij Enter, aby zamknac program...";
 	std::cin.ignore();
 	std::cin.get();
 
