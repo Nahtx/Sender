@@ -34,5 +34,9 @@ int main() {
 		}
 	}
 
+	std::cout << "\n\nNacisnij Enter, aby zakonczyc program...";
+	std::cin.ignore();
+	std::cin.get();
+
 	return 0;
 }
